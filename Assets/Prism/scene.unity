@@ -219,37 +219,37 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ad01ff7bfe782324088aec0189986342,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.92588955
+      value: -0.6708313
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad01ff7bfe782324088aec0189986342,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.022738606
+      value: 0.561
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad01ff7bfe782324088aec0189986342,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.2407844
+      value: -1.482
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad01ff7bfe782324088aec0189986342,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7143091
+      value: 0.709618
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad01ff7bfe782324088aec0189986342,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.10942917
+      value: -0.36338612
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad01ff7bfe782324088aec0189986342,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.37133786
+      value: 0.45041484
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad01ff7bfe782324088aec0189986342,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.58300596
+      value: -0.4018948
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad01ff7bfe782324088aec0189986342,
         type: 3}
@@ -259,17 +259,32 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ad01ff7bfe782324088aec0189986342,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -228.731
+      value: -165.934
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad01ff7bfe782324088aec0189986342,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -806.138
+      value: -793.764
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ad01ff7bfe782324088aec0189986342,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 656.68896
+      value: 424.81
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ad01ff7bfe782324088aec0189986342,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ad01ff7bfe782324088aec0189986342,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ad01ff7bfe782324088aec0189986342,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: ad01ff7bfe782324088aec0189986342,
         type: 3}
@@ -468,7 +483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791551841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.027, y: 0.48, z: 0.998}
+  m_LocalPosition: {x: -0.174, y: 1.643, z: 1.58}
   m_LocalScale: {x: 1.6152, y: 1.6152, z: 1.6152}
   m_Children: []
   m_Father: {fileID: 0}
@@ -539,36 +554,490 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2329363a04182dd4d98ef60857f884de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  density: 5
+  density: 1
   firstBeams:
-  - density: 5
-    hitPos: {x: -1.5982423, y: 0.32000035, z: -1.868155}
+  - density: 1
+    hitPos: {x: -1.1767784, y: 0.5700002, z: -1.7508628}
     isInside: 0
     prismSize: 2
-  - density: 0.99999994
-    hitPos: {x: 7.3745494, y: 0.79020154, z: -6.257679}
+  - density: 0.19999999
+    hitPos: {x: -0.55324626, y: 10.165529, z: -4.496231}
     isInside: 0
-    prismSize: 0
+    prismSize: 2
   cullingMask:
     serializedVersion: 2
     m_Bits: 1
   refCount: 16
-  colorRefractRates:
-  - 0.94
-  - 0.96
-  - 0.98
-  - 1
-  - 1.02
-  - 1.04
-  - 1.06
-  beamColors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 1, g: 0.5, b: 0, a: 1}
-  - {r: 0.9914118, g: 1, b: 0, a: 1}
-  - {r: 0.1333332, g: 1, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0.95364404, a: 1}
-  - {r: 0, g: 0.09511185, b: 1, a: 1}
-  - {r: 0.82294226, g: 0, b: 1, a: 1}
+  colorBeamsArray:
+  - color: {r: 1, g: 0, b: 0, a: 1}
+    refractRate: 0.7
+    beams:
+    - density: 0.8
+      hitPos: {x: -1.0785363, y: 0.76519775, z: -1.0516709}
+      isInside: 1
+      prismSize: 2
+    - density: 0.16
+      hitPos: {x: -1.3458921, y: 0.5384692, z: -1.2131122}
+      isInside: 1
+      prismSize: 2
+    - density: 0.64000005
+      hitPos: {x: -0.60804224, y: 1.4599761, z: 0.92400646}
+      isInside: 0
+      prismSize: 2
+    - density: 0.128
+      hitPos: {x: -8.507205, y: 0.44165742, z: -5.122998}
+      isInside: 0
+      prismSize: 2
+    - density: 0.512
+      hitPos: {x: -0.45843166, y: 1.9609637, z: 2.2657228}
+      isInside: 1
+      prismSize: 2
+    - density: 0.1024
+      hitPos: {x: 0.59546274, y: 1.4510602, z: 1.4273438}
+      isInside: 1
+      prismSize: 2
+    - density: 0.40960002
+      hitPos: {x: -0.5869804, y: 5.633608, z: 11.566}
+      isInside: 0
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.9645864, y: 0.107458234, z: -0.71115774}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.4742982, y: 0.7133868, z: -1.4973066}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.5033894, y: 0.7781911, z: -1.5803981}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.5075903, y: 0.766305, z: -1.5642093}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.7128933, y: 0.45856148, z: -1.0811617}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.6382472, y: 0.21704096, z: -1.1933637}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.464198, y: 1.0587571, z: -1.1531372}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.416215, y: 1.2773682, z: -1.2061548}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: 0, y: 0, z: 0}
+      isInside: 0
+      prismSize: 2
+  - color: {r: 1, g: 0.6640023, b: 0, a: 1}
+    refractRate: 0.75
+    beams:
+    - density: 0.8
+      hitPos: {x: -1.0781667, y: 0.7798625, z: -1.0610157}
+      isInside: 1
+      prismSize: 2
+    - density: 0.16
+      hitPos: {x: -1.355557, y: 0.55247474, z: -1.2337503}
+      isInside: 1
+      prismSize: 2
+    - density: 0.64000005
+      hitPos: {x: -0.5959249, y: 1.5167673, z: 0.903049}
+      isInside: 0
+      prismSize: 2
+    - density: 0.128
+      hitPos: {x: -8.129538, y: 2.0160747, z: -5.654037}
+      isInside: 0
+      prismSize: 2
+    - density: 0.512
+      hitPos: {x: -0.44455737, y: 2.0861409, z: 2.1985812}
+      isInside: 1
+      prismSize: 2
+    - density: 0.1024
+      hitPos: {x: 0.54704237, y: 1.2793137, z: 1.573072}
+      isInside: 1
+      prismSize: 2
+    - density: 0.40960002
+      hitPos: {x: -0.5761024, y: 6.595171, z: 11.123341}
+      isInside: 0
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.3156981, y: 1.1885884, z: -1.2773113}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.2058556, y: 1.0958998, z: -1.1806976}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.971848, y: 0.050344825, z: -1.3276863}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.2809625, y: 0.30062848, z: -1.203277}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.97413856, y: 0.95545244, z: -1.2329}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.99584335, y: 1.0242108, z: -1.4143574}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.0585357, y: 0.033828497, z: -0.678558}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.942673, y: -0.066235185, z: -0.61631036}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: 0, y: 0, z: 0}
+      isInside: 0
+      prismSize: 2
+  - color: {r: 1, g: 0.99510133, b: 0, a: 1}
+    refractRate: 0.8
+    beams:
+    - density: 0.8
+      hitPos: {x: -1.0777901, y: 0.7948164, z: -1.0705446}
+      isInside: 1
+      prismSize: 2
+    - density: 0.16
+      hitPos: {x: -1.3656788, y: 0.56714296, z: -1.2553638}
+      isInside: 1
+      prismSize: 2
+    - density: 0.64000005
+      hitPos: {x: -0.5827754, y: 1.5758057, z: 0.8867425}
+      isInside: 0
+      prismSize: 2
+    - density: 0.128
+      hitPos: {x: -7.6288977, y: 3.6495004, z: -5.8994174}
+      isInside: 0
+      prismSize: 2
+    - density: 0.512
+      hitPos: {x: -0.43643805, y: 2.203306, z: 2.0990388}
+      isInside: 1
+      prismSize: 2
+    - density: 0.1024
+      hitPos: {x: 0.4683141, y: 1.211588, z: 1.8113742}
+      isInside: 1
+      prismSize: 2
+    - density: 0.40960002
+      hitPos: {x: -0.6176247, y: 7.6242237, z: 10.500278}
+      isInside: 0
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.3804505, y: 1.2455974, z: -1.2316107}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.317672, y: 1.1926885, z: -1.1735557}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.0783474, y: -0.010019779, z: -1.344779}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.2569203, y: 0.12762207, z: -1.275749}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.83892584, y: 0.97883534, z: -1.3288867}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.8481256, y: 1.0156682, z: -1.4266734}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.8762696, y: 0.18481195, z: -0.81247056}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.90267086, y: -0.09594488, z: -0.64734703}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: 0, y: 0, z: 0}
+      isInside: 0
+      prismSize: 2
+  - color: {r: 0, g: 1, b: 0.19481754, a: 1}
+    refractRate: 0.85
+    beams:
+    - density: 0.8
+      hitPos: {x: -1.0774046, y: 0.8101202, z: -1.0802966}
+      isInside: 1
+      prismSize: 2
+    - density: 0.16
+      hitPos: {x: -1.3763278, y: 0.5825753, z: -1.2781031}
+      isInside: 1
+      prismSize: 2
+    - density: 0.64000005
+      hitPos: {x: -0.5683622, y: 1.6378108, z: 0.8752533}
+      isInside: 0
+      prismSize: 2
+    - density: 0.128
+      hitPos: {x: -7.004944, y: 5.312824, z: -5.837772}
+      isInside: 0
+      prismSize: 2
+    - density: 0.512
+      hitPos: {x: -0.43572134, y: 2.3054693, z: 1.9605972}
+      isInside: 1
+      prismSize: 2
+    - density: 0.1024
+      hitPos: {x: 0.3555532, y: 1.3059944, z: 2.088152}
+      isInside: 1
+      prismSize: 2
+    - density: 0.40960002
+      hitPos: {x: -0.73691636, y: 8.732988, z: 9.6154175}
+      isInside: 0
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.4459016, y: 1.303221, z: -1.1854173}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.4265652, y: 1.2869463, z: -1.1666002}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.1905017, y: -0.07358968, z: -1.3627787}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.2333145, y: -0.042244554, z: -1.3469055}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.6949696, y: 1.0035462, z: -1.4311644}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.69708997, y: 1.0039792, z: -1.4413176}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.9571935, y: 0.0917041, z: -1.4445813}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.2788705, y: 0.13752866, z: -1.3422467}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: 0, y: 0, z: 0}
+      isInside: 0
+      prismSize: 2
+  - color: {r: 0, g: 0.83165693, b: 1, a: 1}
+    refractRate: 0.9
+    beams:
+    - density: 0.8
+      hitPos: {x: -1.0770084, y: 0.8258471, z: -1.0903182}
+      isInside: 1
+      prismSize: 2
+    - density: 0.16
+      hitPos: {x: -1.3875904, y: 0.59889627, z: -1.3021529}
+      isInside: 1
+      prismSize: 2
+    - density: 0.64000005
+      hitPos: {x: -0.5523449, y: 1.7037408, z: 0.86909664}
+      isInside: 0
+      prismSize: 2
+    - density: 0.128
+      hitPos: {x: -6.25233, y: 6.971819, z: -5.4362593}
+      isInside: 0
+      prismSize: 2
+    - density: 0.512
+      hitPos: {x: -0.44492102, y: 2.3792024, z: 1.7719004}
+      isInside: 1
+      prismSize: 2
+    - density: 0.1024
+      hitPos: {x: 0.1953755, y: 1.6066327, z: 2.2972567}
+      isInside: 1
+      prismSize: 2
+    - density: 0.40960002
+      hitPos: {x: -0.9862572, y: 9.929234, z: 8.306729}
+      isInside: 0
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.5298519, y: 1.330477, z: -1.1609397}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.5340779, y: 1.3192132, z: -1.1615005}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.74531317, y: 0.21243054, z: -1.4128529}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.1551341, y: 1.0063114, z: -1.1555195}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.4520115, y: 1.1770163, z: -1.2806666}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.5138322, y: 1.1584604, z: -1.234234}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.270318, y: 1.2143698, z: -1.2155647}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.2371832, y: 1.1873008, z: -1.2813959}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: 0, y: 0, z: 0}
+      isInside: 0
+      prismSize: 2
+  - color: {r: 0.22655392, g: 0, b: 1, a: 1}
+    refractRate: 0.95
+    beams:
+    - density: 0.8
+      hitPos: {x: -1.0765991, y: 0.8420871, z: -1.1006668}
+      isInside: 1
+      prismSize: 2
+    - density: 0.16
+      hitPos: {x: -1.3995752, y: 0.6162641, z: -1.3277445}
+      isInside: 1
+      prismSize: 2
+    - density: 0.64000005
+      hitPos: {x: -0.5342023, y: 1.7749559, z: 0.8693235}
+      isInside: 0
+      prismSize: 2
+    - density: 0.128
+      hitPos: {x: -5.3594003, y: 8.580373, z: -4.644637}
+      isInside: 0
+      prismSize: 2
+    - density: 0.512
+      hitPos: {x: -0.4681393, y: 2.3918138, z: 1.5094477}
+      isInside: 1
+      prismSize: 2
+    - density: 0.1024
+      hitPos: {x: -0.043709457, y: 2.0963478, z: 2.235529}
+      isInside: 1
+      prismSize: 2
+    - density: 0.40960002
+      hitPos: {x: -1.4969261, y: 11.180111, z: 6.1685705}
+      isInside: 0
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.51288, y: 1.2446901, z: -1.1536934}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.3490686, y: 1.1625683, z: -1.1359086}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.58479524, y: 0.33530474, z: -1.5021471}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.8577204, y: 1.061749, z: -1.3914267}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.8655278, y: 1.0709223, z: -1.3701466}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.5159473, y: 0.8834937, z: -1.4878943}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.5040083, y: 0.88618934, z: -1.498658}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.60018045, y: 0.22713262, z: -1.1458199}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: 0, y: 0, z: 0}
+      isInside: 0
+      prismSize: 2
+  - color: {r: 0.87761927, g: 0, b: 1, a: 1}
+    refractRate: 1
+    beams:
+    - density: 0.8
+      hitPos: {x: -1.0761743, y: 0.85895264, z: -1.111414}
+      isInside: 1
+      prismSize: 2
+    - density: 0.16
+      hitPos: {x: -1.4124215, y: 0.63488054, z: -1.3551756}
+      isInside: 1
+      prismSize: 2
+    - density: 0.64000005
+      hitPos: {x: -0.5130871, y: 1.8535349, z: 0.87792265}
+      isInside: 0
+      prismSize: 2
+    - density: 0.128
+      hitPos: {x: -4.305002, y: 10.066788, z: -3.3839855}
+      isInside: 0
+      prismSize: 2
+    - density: 0.512
+      hitPos: {x: -0.51048726, y: 2.190189, z: 1.0905323}
+      isInside: 1
+      prismSize: 2
+    - density: 0.1024
+      hitPos: {x: -0.42609152, y: 2.3938289, z: 1.4221259}
+      isInside: 1
+      prismSize: 2
+    - density: 0.40960002
+      hitPos: {x: -2.856261, y: 11.909008, z: 1.2952335}
+      isInside: 0
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.4948478, y: 1.1327875, z: -1.192048}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.051834, y: 0.89658225, z: -1.1494823}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.52511024, y: 0.33714488, z: -1.3771572}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.68581694, y: 0.7803346, z: -1.2976297}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.9352897, y: 0.97148037, z: -1.4566543}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.35355, y: 0.7740985, z: -1.0282614}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -1.1989095, y: 0.7921967, z: -0.9959624}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: -0.8076431, y: 0.28087395, z: -1.7972414}
+      isInside: 1
+      prismSize: 2
+    - density: 0
+      hitPos: {x: 0, y: 0, z: 0}
+      isInside: 0
+      prismSize: 2
 --- !u!4 &1910838638
 Transform:
   m_ObjectHideFlags: 0
@@ -577,7 +1046,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910838636}
   m_LocalRotation: {x: -0, y: 0.056387167, z: -0, w: 0.99840903}
-  m_LocalPosition: {x: -2.095, y: 0.32, z: -6.252}
+  m_LocalPosition: {x: -1.69, y: 0.57, z: -6.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

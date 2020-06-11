@@ -7,23 +7,24 @@ public class PrismBeam : MonoBehaviour
 {
     [SerializeField] float density = 1f;
     [SerializeField] Beam[] firstBeams;
-    [SerializeField] Beam[][] colors;
     [SerializeField] LayerMask cullingMask;
     [SerializeField] int refCount = 16;
-    [SerializeField] float[] colorRefractRates = new[] { 0.91f, 0.94f, 0.97f, 1f, 1.03f, 1.06f, 1.09f };
-    [SerializeField] Color[] beamColors = new Color[7];
+    [SerializeField] ColorBeams[] colorBeamsArray = new ColorBeams[7];
 
     public void SetDensity(float val) { firstBeams[0].density = density = val; }
+
+    [ContextMenu("initialize")]
+    void Init()
+    {
+        firstBeams = new Beam[2];
+        colorBeamsArray = new ColorBeams[7];
+        for (var i = 0; i < 7; i++)
+            colorBeamsArray[i].beams = new Beam[refCount];
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        firstBeams = new Beam[2];
-        colors = new Beam[][] {
-            new Beam[refCount], new Beam[refCount],
-            new Beam[refCount], new Beam[refCount],
-            new Beam[refCount], new Beam[refCount],
-            new Beam[refCount], };
         transform.hasChanged = true;
     }
 
@@ -44,11 +45,11 @@ public class PrismBeam : MonoBehaviour
         foreach (var b in firstBeams)
             if (0 < b.density)
                 Gizmos.DrawLine(b.ray.origin, b.hitPos);
-        for (var i = 0; i < 7; i++)
-            foreach (var b in colors[i])
+        foreach (var colorBeams in colorBeamsArray)
+            foreach (var b in colorBeams.beams)
                 if (0 < b.density)
                 {
-                    Gizmos.color = beamColors[i] * b.density;
+                    Gizmos.color = colorBeams.color * b.density;
                     Gizmos.DrawLine(b.ray.origin, b.hitPos);
                 }
     }
@@ -58,19 +59,20 @@ public class PrismBeam : MonoBehaviour
         firstBeams[1].density = 0;
         for (var i = 0; i < 7; i++)
         {
-            var colorBeams = colors[i];
-            var colorRefractRate = colorRefractRates[i];
-            for (var j = 0; j < colorBeams.Length; j++)
-                colorBeams[j].density = 0f;
+            var colorBeams = colorBeamsArray[i];
+            var beams = colorBeams.beams;
+            var colorRefractRate = colorBeams.refractRate;
+            for (var j = 0; j < beams.Length; j++)
+                beams[j].density = 0f;
 
-            Simulate(ref firstBeams[0], ref firstBeams[1], ref colorBeams[0], colorRefractRate);
+            Simulate(ref firstBeams[0], ref firstBeams[1], ref beams[0], colorRefractRate);
             {
                 var j = 0;
-                while (j < colorBeams.Length - 2)
+                while (j < beams.Length - 2)
                 {
-                    if (Simulate(ref colorBeams[j], ref colorBeams[++j], ref colorBeams[++j], colorRefractRate))
+                    if (Simulate(ref beams[j], ref beams[++j], ref beams[++j], colorRefractRate))
                     {
-                        if (colorBeams[j].density == 0)
+                        if (beams[j].density == 0)
                             j--;
                     }
                     else
@@ -86,7 +88,7 @@ public class PrismBeam : MonoBehaviour
         var ray = current.ray;
         if (current.isInside)
         {
-            ray.origin = ray.origin + ray.direction * current.prismSize;
+            ray.origin = ray.GetPoint(current.prismSize);
             ray.direction *= -1f;
         }
         if (Physics.Raycast(ray, out hit, 10f, cullingMask))
@@ -94,11 +96,11 @@ public class PrismBeam : MonoBehaviour
             var mat = hit.collider.GetComponent<PrismMaterial>();
             if (!mat)
                 return false;
-            var refractRate = mat.refractRate * colorRefractRate;
+            var refractRate = Mathf.Lerp(1f, mat.refractRate, colorRefractRate);
             var nml = current.isInside ? hit.normal * -1 : hit.normal;
             var eta = current.isInside ? 1f / refractRate : refractRate;
 
-            current.prismSize = mat.prismSize;
+            current.prismSize = refract.prismSize = reflect.prismSize = mat.prismSize;
             current.hitPos = hit.point;
             reflect.ray.origin = refract.ray.origin = hit.point;
 
@@ -119,10 +121,12 @@ public class PrismBeam : MonoBehaviour
                 refract.density = 0f;
                 reflect.density = current.density;
             }
+            Debug.Log("true");
             return true;
         }
         else
             current.hitPos = current.ray.GetPoint(10f);
+        Debug.Log("false");
         return false;
     }
 
@@ -158,5 +162,13 @@ public class PrismBeam : MonoBehaviour
         public Vector3 hitPos;
         public bool isInside;
         public float prismSize;
+    }
+
+    [System.Serializable]
+    public struct ColorBeams
+    {
+        public Color color;
+        public float refractRate;
+        public Beam[] beams;
     }
 }
