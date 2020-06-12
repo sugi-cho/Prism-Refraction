@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.VFX;
+
 [ExecuteInEditMode]
 public class PrismBeam : MonoBehaviour
 {
@@ -11,21 +13,40 @@ public class PrismBeam : MonoBehaviour
     [SerializeField] int refCount = 16;
     [SerializeField] ColorBeams[] colorBeamsArray = new ColorBeams[7];
 
+    [SerializeField] BeamVfx beamVfx;
+    [SerializeField] VisualEffect beamVfxOrigin;
+
     public void SetDensity(float val) { firstBeams[0].density = density = val; }
 
     [ContextMenu("initialize")]
     void Init()
     {
-        firstBeams = new Beam[2];
-        colorBeamsArray = new ColorBeams[7];
+        if (firstBeams == null || firstBeams.Length != 2)
+            firstBeams = new Beam[2];
+        if (colorBeamsArray == null || colorBeamsArray.Length != 7)
+            colorBeamsArray = new ColorBeams[7];
         for (var i = 0; i < 7; i++)
             colorBeamsArray[i].beams = new Beam[refCount];
+
+        beamVfx.firstBeamVfxes[0] = beamVfxOrigin;
+        var tmp = beamVfx.firstBeamVfxes[1] = Instantiate(beamVfxOrigin);
+        tmp.transform.parent = transform;
+
+        beamVfx.InitializeColorBeams();
+        for (var i = 0; i < 7; i++)
+            for (var j = 0; j < refCount; j++)
+            {
+                var beams = beamVfx.colorBeamsVfxes[i];
+                tmp = beams[j] = Instantiate(beamVfxOrigin);
+                tmp.transform.parent = transform;
+            }
     }
 
     // Start is called before the first frame update
     void Start()
     {
         transform.hasChanged = true;
+        beamVfx.InitializeColorBeams();
     }
 
     // Update is called once per frame
@@ -38,6 +59,7 @@ public class PrismBeam : MonoBehaviour
             firstBeams[0].density = density;
         }
         SimlateBeams();
+        RenderBeams();
     }
 
     private void OnDrawGizmos()
@@ -49,11 +71,15 @@ public class PrismBeam : MonoBehaviour
             foreach (var b in colorBeams.beams)
                 if (0 < b.density)
                 {
-                    Gizmos.color = colorBeams.color * b.density;
+                    var color = colorBeams.color;
+                    color.a = b.density;
+
+                    Gizmos.color = color;
                     Gizmos.DrawLine(b.ray.origin, b.hitPos);
                 }
     }
 
+    #region Simulate
     void SimlateBeams()
     {
         firstBeams[1].density = 0;
@@ -121,12 +147,11 @@ public class PrismBeam : MonoBehaviour
                 refract.density = 0f;
                 reflect.density = current.density;
             }
-            Debug.Log("true");
             return true;
         }
         else
             current.hitPos = current.ray.GetPoint(10f);
-        Debug.Log("false");
+
         return false;
     }
 
@@ -143,6 +168,34 @@ public class PrismBeam : MonoBehaviour
             beam.hitPos = hit.point;
         else
             beam.hitPos = beam.ray.GetPoint(10f);
+    }
+    #endregion
+
+    void RenderBeams()
+    {
+        for(var i=0;i<firstBeams.Length;i++)
+        {
+            var beam = firstBeams[i];
+            var vfx = beamVfx.firstBeamVfxes[i];
+            vfx.SetFloat(BeamVfxConst.Density, beam.density);
+            vfx.SetVector4(BeamVfxConst.Color, Color.white);
+            vfx.SetVector3(BeamVfxConst.BeamStart, beam.ray.origin);
+            vfx.SetVector3(BeamVfxConst.BeamEnd, beam.hitPos);
+        }
+        for(var i=0;i < colorBeamsArray.Length; i++)
+        {
+            var color = colorBeamsArray[i].color;
+            var beams = colorBeamsArray[i].beams;
+            for(var j = 0; j < beams.Length; j++)
+            {
+                var beam = beams[j];
+                var vfx = beamVfx.colorBeamsVfxes[i][j];
+                vfx.SetFloat(BeamVfxConst.Density, beam.density);
+                vfx.SetVector4(BeamVfxConst.Color, color);
+                vfx.SetVector3(BeamVfxConst.BeamStart, beam.ray.origin);
+                vfx.SetVector3(BeamVfxConst.BeamEnd, beam.hitPos);
+            }
+        }
     }
 
     //https://developer.download.nvidia.com/cg/refract.html
@@ -171,4 +224,41 @@ public class PrismBeam : MonoBehaviour
         public float refractRate;
         public Beam[] beams;
     }
+
+    [System.Serializable]
+    public struct BeamVfx
+    {
+        public VisualEffect[] firstBeamVfxes;
+
+        public VisualEffect[] color0BeamVfxes;
+        public VisualEffect[] color1BeamVfxes;
+        public VisualEffect[] color2BeamVfxes;
+        public VisualEffect[] color3BeamVfxes;
+        public VisualEffect[] color4BeamVfxes;
+        public VisualEffect[] color5BeamVfxes;
+        public VisualEffect[] color6BeamVfxes;
+
+        public void InitializeColorBeams()
+        {
+            colorBeamsVfxes = new[] {
+                        color0BeamVfxes,
+                        color1BeamVfxes,
+                        color2BeamVfxes,
+                        color3BeamVfxes,
+                        color4BeamVfxes,
+                        color5BeamVfxes,
+                        color6BeamVfxes,
+                    };
+        }
+        public VisualEffect[][] colorBeamsVfxes;
+    }
+}
+
+public static class BeamVfxConst
+{
+    public static int Density = Shader.PropertyToID("Density");
+    public static int BeamStart = Shader.PropertyToID("BeamLine_start");
+    public static int BeamEnd = Shader.PropertyToID("BeamLine_end");
+    public static int Color = Shader.PropertyToID("Color");
+    public static int Emission = Shader.PropertyToID("Emission");
 }
